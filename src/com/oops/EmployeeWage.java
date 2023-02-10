@@ -7,33 +7,35 @@ public class EmployeeWage {
 	static int part_time = 2;
 	static int wagePerHour = 20;
 	static int fulldayHours = 16;
-	
+
 	public void Attendance() {
 
-		int checkAttendance = (int) ((Math.random() * 10) % 3);
-		if(checkAttendance == isPresent) {
+		int checkAttendance = (int) ((Math.random() * 10) % 4);
+		switch (checkAttendance) {
+		case 1:
 			System.out.println("employee is present");
 			fulldayHours = 16;
-		}
-		else if (checkAttendance == isAbsent){
+			break;
+		case 2:
 			System.out.println("employee is absent");
 			fulldayHours = 0;
-		}
-		else if(checkAttendance == part_time) {
-			System.out.println("employee is working part_time");
+			break;
+		case 3:
+			System.out.println("employee is working part time");
 			fulldayHours = 8;
-		}
-		else {
-			System.out.println("employee is not working");
+			break;
+		default:
+			System.out.println(" employee need to be hired");
+			break;
 		}
 	}				
 }
 
 class DailyWages extends EmployeeWage{
-	
-	
+
+
 	public void dailywage() {
-		
+
 		int dailyWages = fulldayHours * wagePerHour ;
 		System.out.println("dailywages:"+dailyWages);
 
