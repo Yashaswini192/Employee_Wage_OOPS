@@ -7,7 +7,8 @@ public class EmployeeWage {
 	static int part_time = 2;
 	static int wagePerHour = 20;
 	static int fulldayHours = 16;
-
+	static int workingDaysPerMonth = 20;
+	
 	public void Attendance() {
 
 		int checkAttendance = (int) ((Math.random() * 10) % 4);
@@ -34,12 +35,17 @@ public class EmployeeWage {
 class DailyWages extends EmployeeWage{
 
 
-	public void dailywage() {
+	public static void dailywage() {
 
-		int dailyWages = fulldayHours * wagePerHour ;
+		 int dailyWages = fulldayHours * wagePerHour ;
 		System.out.println("dailywages:"+dailyWages);
+		
+		int MonthlyWages = workingDaysPerMonth * dailyWages ;
+        System.out.println("Employee monthly wages is :" +MonthlyWages);
 
 	}
 }
+
+
 
 
