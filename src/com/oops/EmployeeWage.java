@@ -6,8 +6,10 @@ public class EmployeeWage {
 	static int isAbsent = 0 ;
 	static int part_time = 2;
 	static int wagePerHour = 20;
-	static int fulldayHours = 16;
+	static int fulldayHours = 20;
 	static int workingDaysPerMonth = 20;
+	static int totalWorkingHours = 0;
+	static int WorkingHours = 0;
 	
 	public void Attendance() {
 
@@ -15,15 +17,18 @@ public class EmployeeWage {
 		switch (checkAttendance) {
 		case 1:
 			System.out.println("employee is present");
-			fulldayHours = 16;
+			WorkingHours = 100;
+			workingDaysPerMonth = 20;
 			break;
 		case 2:
 			System.out.println("employee is absent");
-			fulldayHours = 0;
+			WorkingHours = 0;
+			workingDaysPerMonth = 0;
 			break;
 		case 3:
 			System.out.println("employee is working part time");
-			fulldayHours = 8;
+			WorkingHours = 50;
+			workingDaysPerMonth = 10;
 			break;
 		default:
 			System.out.println(" employee need to be hired");
@@ -37,10 +42,13 @@ class DailyWages extends EmployeeWage{
 
 	public static void dailywage() {
 
-		 int dailyWages = fulldayHours * wagePerHour ;
+		totalWorkingHours = workingDaysPerMonth *  WorkingHours ; 
+        System.out.println("totalworkingHours:"+totalWorkingHours);
+		
+		 int dailyWages = WorkingHours * wagePerHour ;
 		System.out.println("dailywages:"+dailyWages);
 		
-		int MonthlyWages = workingDaysPerMonth * dailyWages ;
+		int MonthlyWages = totalWorkingHours * dailyWages ;
         System.out.println("Employee monthly wages is :" +MonthlyWages);
 
 	}
